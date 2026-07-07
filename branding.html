@@ -290,6 +290,16 @@
   footer .fbrand{color:var(--navy); font-size:14px; letter-spacing:0.02em; font-family:'Space Grotesk',sans-serif; font-weight:700;}
   footer .fbrand span{color:var(--gold);}
   .footer-tagline{font-size:11px; letter-spacing:0.05em; text-transform:uppercase; color:var(--blue); font-weight:600;}
+  .social-row{display:flex; gap:10px;}
+  .social-icon{
+    width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--line); color:var(--navy);
+    transition:background 0.2s, transform 0.15s ease, border-color 0.2s;
+    text-decoration:none;
+  }
+  .social-icon svg{width:16px; height:16px;}
+  .social-icon:hover{background:var(--blue-light); border-color:var(--blue); transform:translateY(-2px);}
 </style>
 </head>
 <body>
@@ -306,6 +316,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="portal.html">Client Portal</a></li>
       </ul>
       <a href="#contact" class="nav-cta">Get a quote</a>
     </div>
@@ -504,10 +515,27 @@
         <div class="footer-tagline">Deal with us | Grow with us</div>
       </div>
     </div>
-    <div>© <span id="year"></span> KwaDel Firms — Branding · Design · Consultancy · Print · Photo · Video · Drone</div>
+    <div>© <span id="year"></span> KwaDel Firms — Branding · Design · Consultancy · Print · Photo · Video · Drone <a href="admin.html" style="color:var(--slate); text-decoration:underline; margin-left:8px;">Staff login</a></div>
+    <div class="social-row">
+      <a href="https://instagram.com/kwadelfirms" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg></a>
+      <a href="https://www.linkedin.com/company/kwadelfirms" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="8.5" r="1.1" fill="currentColor"/><path d="M8 11v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 17v-3.2c0-1.5 1-2.3 2.2-2.3 1.1 0 1.8.8 1.8 2.3V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/><path d="M12 11v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+      <a href="https://facebook.com/kwadelfirms" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M14 8h-1.5c-1 0-1.5.5-1.5 1.5V11h3l-.4 2.5H11V19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a>
+      <a href="https://x.com/kwadelfirms" target="_blank" rel="noopener" class="social-icon" aria-label="X"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+      <a href="https://youtube.com/@kwadelfirms" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 9.5v5l4.5-2.5-4.5-2.5z" fill="currentColor"/></svg></a>
+      <a href="https://tiktok.com/@kwadelfirms" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3v11.2a3.2 3.2 0 1 1-2-2.96" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 6.5c1 1.7 2.6 2.7 4.5 2.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
   <script>
+    // ---- Backend config ----
+    // Paste your Supabase project values here (Supabase dashboard → Settings → API)
+    const SUPABASE_URL = 'https://jqbcwbvfuojjdneppwjq.supabase.co/rest/v1/';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxYmN3YnZmdW9qamRuZXBwd2pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMzODIwNjksImV4cCI6MjA5ODk1ODA2OX0.ZAkVdmrdspOkRhIilQczDclOi3J68SkxkSJyUbHhhAg';
+    const supabaseClient = (SUPABASE_URL.startsWith('http'))
+      ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+      : null;
+
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Sticky nav shadow on scroll
@@ -531,24 +559,46 @@
     }, { threshold: 0.15 });
     revealEls.forEach(el => io.observe(el));
 
-    // Contact form -> mailto
-    document.getElementById('contactForm').addEventListener('submit', function(e){
+    // Contact form -> saves to database, falls back to email if unavailable
+    document.getElementById('contactForm').addEventListener('submit', async function(e){
       e.preventDefault();
       const name = document.getElementById('name').value;
       const contact = document.getElementById('contact').value;
       const service = document.getElementById('service').value;
       const message = document.getElementById('message').value;
+      const btn = this.querySelector('.submit-btn');
+      const successMsg = document.getElementById('successMsg');
 
-      const subject = encodeURIComponent('New project inquiry: ' + service);
-      const body = encodeURIComponent(
-        'Name: ' + name + '\n' +
-        'Contact: ' + contact + '\n' +
-        'Project type: ' + service + '\n\n' +
-        'Message:\n' + message
-      );
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
 
-      window.location.href = 'mailto:hello@kwadelfirms.com?subject=' + subject + '&body=' + body;
-      document.getElementById('successMsg').classList.add('show');
+      let saved = false;
+      if (supabaseClient) {
+        const { error } = await supabaseClient
+          .from('contact_submissions')
+          .insert([{ subsidiary: 'branding', name, contact, service, message }]);
+        saved = !error;
+      }
+
+      if (saved) {
+        successMsg.textContent = "Thanks — your message has been sent. We'll be in touch soon.";
+        successMsg.classList.add('show');
+        this.reset();
+      } else {
+        const subject = encodeURIComponent('New project inquiry: ' + service);
+        const body = encodeURIComponent(
+          'Name: ' + name + '\n' +
+          'Contact: ' + contact + '\n' +
+          'Project type: ' + service + '\n\n' +
+          'Message:\n' + message
+        );
+        window.location.href = 'mailto:hello@kwadelfirms.com?subject=' + subject + '&body=' + body;
+        successMsg.textContent = "We couldn't reach our server, so we opened your email app instead — please hit send there.";
+        successMsg.classList.add('show');
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Send message';
     });
   </script>
 
