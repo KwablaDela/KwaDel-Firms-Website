@@ -530,7 +530,7 @@
   <script>
     // ---- Backend config ----
     // Paste your Supabase project values here (Supabase dashboard → Settings → API)
-    const SUPABASE_URL = 'https://jqbcwbvfuojjdneppwjq.supabase.co/rest/v1/';
+    const SUPABASE_URL = 'https://jqbcwbvfuojjdneppwjq.supabase.co/';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxYmN3YnZmdW9qamRuZXBwd2pxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMzODIwNjksImV4cCI6MjA5ODk1ODA2OX0.ZAkVdmrdspOkRhIilQczDclOi3J68SkxkSJyUbHhhAg';
     const supabaseClient = (SUPABASE_URL.startsWith('http'))
       ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
