@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; base-uri 'self'; form-action 'self' https://formspree.io; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="theme-init.js"></script>
+<title>Book Now — Jerome Gabada</title>
+<meta name="description" content="Book branding, photography, videography, voice-over, drone/aerial, agriculture consulting or research sessions with Jerome Gabada. Sent straight to his inbox.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-role="booking">
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand-mark"><span class="dot"></span> Jerome Gabada</a>
+    <div class="nav-right">
+    <a href="booking.html" class="nav-cta">Book Now</a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme" aria-pressed="false">☀</button>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="professional.html" data-role="professional"><span class="chip"></span>Professional</a></li>
+      <li><a href="branding.html" data-role="branding"><span class="chip"></span>Branding</a></li>
+      <li><a href="agriculture.html" data-role="agriculture"><span class="chip"></span>Agriculture</a></li>
+      <li><a href="drone.html" data-role="drone"><span class="chip"></span>UAV &amp; Data</a></li>    </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="wrap">
+    <div class="wp-tag">WP-05 · BOOK NOW</div>
+    <h1>Book a Session</h1>
+    <p class="lede">Pick a service, share a few details, and it lands directly in my inbox — no back-and-forth needed to get started. I typically reply within 24–48 hours.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap grid-2">
+    <div class="reveal">
+      <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+
+      <form id="bookingForm" class="book-form" action="https://formspree.io/f/xzepornk" method="POST">
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Full name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="date">Preferred date (optional)</label>
+            <input type="date" id="date" name="preferred_date">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="service">Service <span class="req">*</span></label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service…</option>
+            <option value="Branding & Graphic Design">Branding &amp; Graphic Design</option>
+            <option value="Photography">Photography</option>
+            <option value="Videography">Videography</option>
+            <option value="Voice Over">Voice Over</option>
+            <option value="Drone / Aerial Capture & Mapping">Drone / Aerial Capture &amp; Mapping</option>
+            <option value="Farm Operations Consulting">Farm Operations Consulting</option>
+            <option value="Research & Economics Consulting">Research &amp; Economics Consulting</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Project details <span class="req">*</span></label>
+          <textarea id="message" name="message" required placeholder="What are you looking to book, and any dates, locations, or deadlines I should know about?"></textarea>
+        </div>
+
+        <!-- honeypot spam trap: real visitors never see or fill this -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="_gotcha">Leave this field empty</label>
+          <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="_subject" id="formSubject" value="New booking request">
+
+        <button type="submit" class="form-submit">Send Booking Request</button>
+        <p class="form-note">Prefer email? Write directly to <a class="contact-link" data-kind="email" data-e="SmdhYmFkYTE2QGdtYWlsLmNvbQ==" href="#">this address</a>.</p>
+      </form>
+    </div>
+
+    <div class="reveal">
+      <p class="eyebrow">WHAT HAPPENS NEXT</p>
+      <h2>Three steps, no phone tag</h2>
+      <div class="book-steps" style="grid-template-columns:1fr; margin-top:22px;">
+        <div class="book-step">
+          <span class="bs-n">01</span>
+          <h3>You submit the form</h3>
+          <p>Details go straight to my inbox — no account or sign-up needed on your end.</p>
+        </div>
+        <div class="book-step">
+          <span class="bs-n">02</span>
+          <h3>I confirm scope &amp; date</h3>
+          <p>I'll reply by email within 24–48 hours to confirm availability and next steps.</p>
+        </div>
+        <div class="book-step">
+          <span class="bs-n">03</span>
+          <h3>We lock it in</h3>
+          <p>Once details are confirmed, the session or project goes on the calendar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-left">
+      <b>Jerome Gabada</b> · Somanya, Eastern Region, Ghana<br>
+      <span class="contact-line" data-e="SmdhYmFkYTE2QGdtYWlsLmNvbQ==" data-p="KzIzMyAyNCA3MjQgMTQxOA==">contact details load on click below</span>
+    </div>
+    <div class="f-links">
+      <a href="https://linkedin.com/in/gabadajerome" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="contact-link" data-kind="email" data-e="SmdhYmFkYTE2QGdtYWlsLmNvbQ==" href="#">Email</a>
+      <a class="contact-link" data-kind="tel" data-p="KzIzMzI0NzI0MTQxOA==" href="#">Call</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="booking.js"></script>
+</body>
+</html>
